@@ -32,8 +32,6 @@ spec:
       - name: redis
         image: redis:alpine
 
-      - name: busybox
-        image: busybox:latest
         
 ---
 apiVersion: v1
