@@ -32,6 +32,9 @@ spec:
       - name: redis
         image: redis:alpine
 
+      - name: figlet
+        image: shubh752/figlet:1.2
+
         
 ---
 apiVersion: v1
