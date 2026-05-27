@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pyweb
+  labels:
+    name: pyweb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyweb-deployment
+  namespace: pyweb
+  labels:
+    app: pyweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyweb
+  template:
+    metadata:
+      labels:
+        app: pyweb
+    spec:
+      containers:
+      - name: pyweb
+        image: smehta26/pyweb:2.0
+        ports:
+        - containerPort: 5000
+
+      - name: redis
+        image: redis:alpine
+---
+apiVersion: v1
+kind: Service
+metadata:   
+  name: pyweb-service
+  namespace: pyweb
+  labels:     
+    app: pyweb
+spec:   
+  type: LoadBalancer
+  ports:   
+  - port: 5000   
+  selector:
+    app: pyweb
