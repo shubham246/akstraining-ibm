@@ -14,7 +14,7 @@ metadata:
   labels:
     app: pyweb
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: pyweb
@@ -31,6 +31,7 @@ spec:
 
       - name: redis
         image: redis:alpine
+        
 ---
 apiVersion: v1
 kind: Service
