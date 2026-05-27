@@ -32,8 +32,8 @@ spec:
       - name: redis
         image: redis:alpine
 
-      - name: figlet
-        image: shubh752/figlet:1.2
+      - name: nginx
+        image: nginx:stable-alpine3.23-perl
 
         
 ---
